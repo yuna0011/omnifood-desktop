@@ -46,6 +46,12 @@
     --letter-spacing-tight   : -0.025em;
     --letter-spacing-wide    : 0.05em;
     --letter-spacing-wider   : 0.1em;
+
+    /* Border Radius */
+    --radius-sm              : 0.125rem; /* 2px */
+    --radius-md              : 0.375rem; /* 6px */
+    --radius-lg              : 0.5rem; /* 8px */
+    --radius-full            : 9999px;
 }
 
 body
@@ -93,6 +99,29 @@ body
         margin-top      : var(--spacing-lg);
         gap             : var(--spacing-md);
     }
+
+    .delivery-partners
+    {
+        display       : flex;
+        align-items   : center;
+        margin-top    : var(--spacing-lg);
+        border-radius : var(--radius-full);
+        gap           : var(--spacing-sm);
+
+        img
+        {
+            width         : 3rem;
+            cursor        : pointer;
+            transition    : transform 0.3s ease;
+            border-radius : var(--radius-full);
+            object-fit    : contain;
+
+            &:hover
+            {
+                animation : rotate 3s linear infinite;
+            }
+        }
+    }
 }
 
 
@@ -101,6 +130,14 @@ img
     display   : block;
     max-width : 100%;
     filter    : drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+}
+
+@keyframes rotate
+{
+    to
+    {
+        transform : rotate(360deg);
+    }
 }
 
 .button
@@ -126,7 +163,6 @@ img
 
     &:hover
     {
-        animation        : rotate 1s linear infinite;
         background-color : var(--color-primary-tomato);
     }
 
